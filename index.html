@@ -30,11 +30,11 @@
             width: 70vw;
             height: 70vw;
             transform: translate(-50%, -50%);
-            background-image: url('img/LOGO.PNG'); /* Tu logo como marca de agua */
+            background-image: url('img/LOGO.PNG');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            opacity: 0.04; /* Ultra sutil */
+            opacity: 0.04;
             z-index: -1;
             pointer-events: none;
         }
@@ -61,6 +61,8 @@
             transition: 0.4s;
             overflow: hidden;
             backdrop-filter: blur(8px);
+            max-width: 320px;
+            margin: 0 auto;
         }
         .card:hover { 
             border-color: var(--gold); 
@@ -68,25 +70,32 @@
             box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25);
         }
 
-        /* VISIBILIDAD DE TEXTO MEJORADA */
+        .card-img-top {
+            height: 220px;
+            object-fit: contain;
+            padding: 15px;
+            background: #1a1a1a;
+        }
+
         .card-title {
             color: #FFFFFF !important; 
             font-weight: 700 !important; 
-            font-size: 1.35rem;
-            margin-top: 15px;
+            font-size: 1.1rem;
+            margin-top: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
         .card-description {
             color: #F8F9FA !important; 
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
             opacity: 0.9;
+            height: 40px;
         }
         .price-tag {
             color: var(--gold);
             font-weight: 700;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 15px;
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
@@ -97,13 +106,25 @@
             font-weight: 700;
             border-radius: 50px;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             letter-spacing: 1px;
             border: none;
-            padding: 14px;
+            padding: 12px;
             transition: 0.3s;
         }
         .btn-buy:hover { background-color: #f1c40f; color: black; transform: scale(1.02); }
+
+        /* --- SECCIÓN RESEÑAS --- */
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--gold);
+            padding: 20px;
+            border-radius: 10px;
+            height: 100%;
+        }
+        .stars { color: var(--gold); margin-bottom: 10px; font-size: 0.9rem; }
+        .review-text { font-style: italic; font-size: 0.9rem; color: #ccc; }
+        .review-author { font-weight: 700; color: white; margin-top: 10px; display: block; font-size: 0.85rem; }
         
         .social-float {
             position: fixed;
@@ -146,11 +167,12 @@
     </header>
 
     <section class="container my-5" id="catalogo">
-        <h2 class="text-center mb-5">¡TODOS LOS PEDIDOS SON CONTRAENTREGA PARA TOTAL SEGURIDAD, GARANTIA Y CONFIANZA!</h2>
-        <div class="row g-4">
+        <h2 class="text-center mb-5" style="font-size: 1.2rem; opacity: 0.8;">¡TODOS LOS PEDIDOS SON CONTRAENTREGA PARA TOTAL SEGURIDAD, GARANTIA Y CONFIANZA!</h2>
+        
+        <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center">
             
-            <div class="col-md-4 col-sm-6">
-                <div class="card h-100 p-3 text-center">
+            <div class="col">
+                <div class="card h-100 p-2 text-center">
                     <img src="img/CAPSULA NACIONAL.PNG" class="card-img-top rounded" alt="Nacional">
                     <div class="card-body">
                         <h5 class="card-title">Cápsula Dest Nacional</h5>
@@ -161,8 +183,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6">
-                <div class="card h-100 p-3 text-center">
+            <div class="col">
+                <div class="card h-100 p-2 text-center">
                     <img src="img/CAPSULA IMPORTADA.PNG" class="card-img-top rounded" alt="Importada">
                     <div class="card-body">
                         <h5 class="card-title">Cápsula Dest Importado</h5>
@@ -173,8 +195,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6">
-                <div class="card h-100 p-3 text-center">
+            <div class="col">
+                <div class="card h-100 p-2 text-center">
                     <img src="img/CAPSULA AMERICANA.PNG" class="card-img-top rounded" alt="Americana">
                     <div class="card-body">
                         <h5 class="card-title">Cápsula Marca Americana</h5>
@@ -185,8 +207,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 col-sm-6">
-                <div class="card h-100 p-3 text-center">
+            <div class="col">
+                <div class="card h-100 p-2 text-center">
                     <img src="img/BATERIA COOKIES LED + TIPO C.PNG" class="card-img-top rounded" alt="Cookies">
                     <div class="card-body">
                         <h5 class="card-title">Batería Cookies tipo C</h5>
@@ -196,28 +218,37 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="col-md-4 col-sm-6">
-                <div class="card h-100 p-3 text-center">
-                    <img src="img/BATERIA BRASS ROSCA.PNG" class="card-img-top rounded" alt="Brass">
-                    <div class="card-body">
-                        <h5 class="card-title">Batería Brass Rosca</h5>
-                        <p class="card-description">Resistente, clásica y elegante.</p>
-                        <div class="price-tag">$50.000</div>
-                        <a href="https://wa.me/573117169602?text=Hola!%20Deseo%20la%20Bateria%20Brass" class="btn btn-buy w-100">Ordenar Ahora</a>
+    <section class="container my-5 py-4">
+        <h2 class="text-center mb-4" style="font-size: 1.5rem;">Lo que dicen nuestros clientes</h2>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
+                    <p class="review-text">"Excelente calidad y la entrega fue súper rápida aquí en Santa Marta. Recomendado."</p>
+                    <span class="review-author">- Carlos R.</span>
                 </div>
             </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="card h-100 p-3 text-center">
-                    <img src="img/CAPSULA VACIA.PNG" class="card-img-top rounded" alt="Vacia">
-                    <div class="card-body">
-                        <h5 class="card-title">Cápsula Vacía</h5>
-                        <p class="card-description">Unidad lista para recargar.</p>
-                        <div class="price-tag">$10.000</div>
-                        <a href="https://wa.me/573117169602?text=Hola!%20Deseo%20la%20Capsula%20Vacia" class="btn btn-buy w-100">Ordenar Ahora</a>
+            <div class="col-md-4">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
+                    <p class="review-text">"La atención por WhatsApp es 10/10. Los productos son originales y el empaque muy discreto."</p>
+                    <span class="review-author">- Andrea M.</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Me encanta que sea contraentrega, me dio mucha seguridad para mi primera compra."</p>
+                    <span class="review-author">- Juan P.</span>
                 </div>
             </div>
         </div>
